@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'
+      targetNamespace="urn:monal-im:scram-preload"
+      xmlns="urn:monal-im:scram-preload"
+      elementFormDefault="qualified">
+  
+  <xs:element name="preload">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="server" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+              <xs:attribute name="tls13" type="xs:boolean"/>
+              <xs:attribute name="sasl2" type="xs:boolean"/>
+              <xs:attribute name="scram" type="xs:boolean"/>
+              <xs:attribute name="channel-binding" type="xs:boolean"/>
+              <xs:attribute name="ssdp" type="xs:boolean"/>
+              <xs:sequence>
+                <xs:element name="host" type="host" minOccurs="1" maxOccurs="unbounded"/>
+              </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:simpleType name="host">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="255"/>
+      <xsd:pattern value="^.+\\..{2,}$"></xsd:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
