@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <preload xmlns="urn:monal-im:scram-preload"> 
-  <server tls13="true" sasl2="true" scram="true" channel-binding="true">
+  <server tls13="true" sasl2="true" scram="true" channel-binding="true" ssdp="true">
     <host>conversations.im</host>
   </server>
-  <server tls13="true" sasl2="false" scram="false" channel-binding="false">
+  <server tls13="true" sasl2="true" scram="true" channel-binding="true" ssdp="true">
+    <host>xmpp.eightysoft.de</host>
+  </server>
+  <server tls13="true" sasl2="false" scram="false" channel-binding="false" ssdp="false">
     <host>juforum.de</host>
   </server>
 </preload>
